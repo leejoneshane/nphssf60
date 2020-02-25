@@ -4,7 +4,9 @@ ENV DB_HOST sciencemysql
 ENV DB_USER root
 ENV DB_PASSWORD yourpassword
 
+WORKDIR /var/www/html
 ADD docker-php-entrypoint /usr/local/bin
+ADD index.html /var/www/html
 
 RUN apt-get update \
     && apt-get install -y openssh-server sudo \
