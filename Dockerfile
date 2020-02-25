@@ -8,4 +8,4 @@ RUN apt-get update \
     && apt-get install -y openssh-server sudo \
     && useradd -G sudo science -p scienceMeps
     
-CMD ['service','ssh','start','&&','exec','apache2-foreground']
+ENTRYPOINT ['/usr/sbin/sshd','-D','&&','exec','apache2-foreground']
