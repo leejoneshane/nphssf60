@@ -8,4 +8,4 @@ RUN apt-get update \
     && apt-get install -y openssh-server sudo \
     && useradd -G sudo science -p scienceMeps
     
-CMD service ssh start
+CMD service ssh start && apache2-foreground
