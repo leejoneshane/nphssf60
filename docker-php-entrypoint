@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+service ssh start
+apache2-foreground
