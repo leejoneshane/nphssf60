@@ -1,5 +1,11 @@
 #!/bin/sh
 set -e
 
+if id "science" >/dev/null 2>&1; then
+  echo "user ready!"
+else
+  useradd -G sudo science -p ${DB_PASSWORD}
+fi
+
 /usr/sbin/sshd -D &
 apache2-foreground
