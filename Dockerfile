@@ -9,7 +9,7 @@ ADD docker-php-entrypoint /usr/local/bin
 ADD index.html /var/www/html
 
 RUN apt-get update \
-    && apt-get install -y openssh-server sudo zlib1g-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev libssl-dev \
+    && apt-get install -y mariadb-client openssh-server sudo zlib1g-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev libssl-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd fileinfo mysqli ftp \
     && docker-php-ext-enable mysqli fileinfo gd ftp \
