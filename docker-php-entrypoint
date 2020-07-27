@@ -4,7 +4,7 @@ set -e
 if id "science" >/dev/null 2>&1; then
   echo "user exists!"
 else
-  useradd -G sudo science
+  useradd -d /var/www/html -G sudo science
 fi
 
 echo -e "${DB_PASSWORD}\n${DB_PASSWORD}\n" | passwd science
