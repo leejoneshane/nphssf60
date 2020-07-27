@@ -14,6 +14,7 @@ RUN apt-get update \
     && docker-php-ext-install -j$(nproc) gd fileinfo mysqli ftp \
     && docker-php-ext-enable mysqli fileinfo gd ftp \
     && sed 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' -i /etc/ssh/sshd_config \
+    && sed 's/DirectoryIndex index.php index.html/DirectoryIndex index.index index.php/g' -i /etc/apache2/conf-enabled/docker-php.conf \
     && chmod 755 /usr/local/bin/docker-php-entrypoint \
     && mkdir -p /run/sshd \
     && echo "post_max_size = 100M\n upload_max_filesize = 100M\n max_file_uploads = 20\n" > /usr/local/etc/php/conf.d/upload.ini
