@@ -17,6 +17,7 @@ RUN apt-get update \
     && sed 's/DirectoryIndex index.php index.html/DirectoryIndex index.html index.php/g' -i /etc/apache2/conf-enabled/docker-php.conf \
     && chmod 755 /usr/local/bin/docker-php-entrypoint \
     && mkdir -p /run/sshd \
-    && echo "post_max_size = 100M\n upload_max_filesize = 100M\n max_file_uploads = 20\n" > /usr/local/etc/php/conf.d/upload.ini
+    && echo "post_max_size = 100M\n upload_max_filesize = 100M\n max_file_uploads = 20\n" > /usr/local/etc/php/conf.d/upload.ini \
+    && useradd -G sudo science -d /var/www/html
     
 EXPOSE 22 80
