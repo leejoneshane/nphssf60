@@ -7,7 +7,7 @@ else
   useradd -G sudo science
 fi
 
-echo "${DB_PASSWORD}\n${DB_PASSWORD}\n" | passwd
+echo -e "${DB_PASSWORD}\n${DB_PASSWORD}\n" | passwd science
 
 /usr/sbin/sshd -D &
 apache2-foreground
