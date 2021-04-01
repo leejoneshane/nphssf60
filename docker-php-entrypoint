@@ -7,7 +7,7 @@ else
   useradd -d /var/www/html -G sudo science
 fi
 
-echo -e "${DB_PASSWORD}\n${DB_PASSWORD}\n" | passwd science
+echo -e "${DB_PASSWORD}\n${DB_PASSWORD}\n" | passwd science || true
 
 /usr/sbin/sshd -D &
 apache2-foreground
